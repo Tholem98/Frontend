@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "name": "express",
+    "builds": [
+        { "src": "index.js", "use": "@now/node" },
+        { "src": "public/*", "use": "@now/static" }
+    ], 
+
+    "public":true
+  
+}
+  

@@ -1,0 +1,242 @@
+<script>
+
+app = document.getElementsByClassName("app");
+
+for(var i = 0; i < app.length; i++) {
+    app[i].addEventListener('mouseenter', anim, false);
+}
+for(var i = 0; i < app.length; i++) {
+      app[i].addEventListener('mouseleave',desanim,false);
+}
+
+  function anim(){
+    this.style.transition = "all 0.36s ease"
+    this.style.transform = "scale3d(1.05, 1.05, 1.05)"
+    
+    
+  }
+function desanim(){
+  this.style.transform = "scale3d(1, 1, 1)"
+}
+
+      function recent(){
+     let card = document.getElementById('cards');
+      card.innerHTML = ''
+      
+      card.innerHTML = `
+      <%i=0%>
+      <% prodr.forEach(prodr => { %> 
+    
+          <div  class="flex flex-wrap -m-2 " >
+              <div id="app[<%=i%>]" style="position: relative" class="w-full h-full p-4 app"  >
+                <div class="shadow h-full "  >
+                <div  style="position:relative; width:200px;">
+                  <img src="<%= prodr.img.url %>" alt="">  
+                  <% if(  coins != '' ) {%>
+                 <% if( prodr.cost <= coins ) {%> 
+                  <div style=" width: 32px ; height: 32px ; text-align: center ;background-image:radial-gradient(50% 130%, #0ad4fa 51%, #25bbf1 100%);; border-radius:100% ; position:absolute; top:0%; right:0%;">
+                  <img src="public/buy-blue.svg" alt=""></div>
+                
+              <%}else{%>
+                <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
+                background:#616161;
+                border-radius:100px;
+                width:108px;
+                height:32px; position:absolute; top:0%; right:0%;">
+                <p style="font-size:11px; color:white; " class="pt-1">You need <%=prodr.cost - coins%>  <img style="width:26px;
+                  height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                
+                </div>
+                <%}%>
+              <%}else{%>
+                
+                <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
+                background:#616161;
+                border-radius:100px;
+                width:108px;
+                height:32px; position:absolute; top:0%; right:0%;">
+                <p style="font-size:11px; color:white; " class="pt-1">You need <%=prodr.cost%>  <img style="width:26px;
+                  height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                
+                </div>
+                <%}%>
+            </div>
+                  <p class="text-grey text-base pl-4"><%=prodr.category%></p>
+                    <p class="text-grey-darker text-xl mb-2" style="text-align: center" ><%=prodr.name%> </br> 
+                      <%if(user && coins>=prodr.cost){%>
+                    <p style="text-align:center"><strong><%=prodr.cost%></strong><img style="width:26px;
+                      height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                  <form style="text-align:center" action="/" method="POST">
+                     <input style="display:none" type="name" name="username"value="<%=user%>">
+                      <input style="display:none" type="number" name="coins" value="<%=coins - prodr.cost%>">
+                      <button type="submit"
+                     class="btn hover:bg-grey  static inline-block bg-grey-lighter rounded-full px-3 py-0 textsdm font-semibold text-grey-darker">
+                     Reedem Now</button>
+                     </form>
+                    <%}%>
+                    </p>
+                </div>
+              </div>
+            </div>
+            <%i++%>
+          <% }); %>
+      </div>`
+      
+      app = document.getElementsByClassName("app");
+
+for(var i = 0; i < app.length; i++) {
+    app[i].addEventListener('mouseover', anim, false);
+}
+for(var i = 0; i < app.length; i++) {
+      app[i].addEventListener('mouseout', desanim, false);
+}
+
+    }
+    
+    
+    
+    function lower(){
+     let card = document.getElementById('cards');
+      card.innerHTML = ''
+      card.innerHTML = `
+      <%i=0%>
+      <% prodl.forEach(prodl => { %> 
+    
+          <div  class="flex flex-wrap -m-2">
+              <div id="app[<%=i%>]" style="position: relative" class="w-full h-full p-4 app"  >
+                <div class="shadow h-full "  >
+                <div  style="position:relative; width:200px;">
+                  <img src="<%= prodl.img.url %>" alt="">  
+                  <% if(  coins != '' ) {%>
+                 <% if( prodl.cost <= coins ) {%> 
+                  <div style=" width: 32px ; height: 32px ; text-align: center ;background-image:radial-gradient(50% 130%, #0ad4fa 51%, #25bbf1 100%);; border-radius:100% ; position:absolute; top:0%; right:0%;">
+                  <img src="public/buy-blue.svg" alt=""></div>
+                
+              <%}else{%>
+                <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
+                background:#616161;
+                border-radius:100px;
+                width:108px;
+                height:32px; position:absolute; top:0%; right:0%;">
+                <p style="font-size:11px; color:white; " class="pt-1">You need <%=prodl.cost - coins%>  <img style="width:26px;
+                  height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                
+                </div>
+                <%}%>
+              <%}else{%>
+                
+                <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
+                background:#616161;
+                border-radius:100px;
+                width:108px;
+                height:32px; position:absolute; top:0%; right:0%;">
+                <p style="font-size:11px; color:white; " class="pt-1">You need <%=prodl.cost%>  <img style="width:26px;
+                  height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                
+                </div>
+                <%}%>
+            </div>
+                  <p class="text-grey text-base pl-4"><%=prodl.category%></p>
+                  <p class="text-grey-darker text-xl mb-2" style="text-align: center" ><%=prodl.name%> </br> 
+                      <%if(user && coins>=prodl.cost){%>
+                    <p style="text-align:center"><strong><%=prodl.cost%></strong><img style="width:26px;
+                      height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                  <form style="text-align:center" action="/" method="POST">
+                     <input style="display:none" type="name" name="username"value="<%=user%>">
+                      <input style="display:none" type="number" name="coins" value="<%=coins - prodl.cost%>">
+                      <button type="submit"
+                     class="btn hover:bg-grey  static inline-block bg-grey-lighter rounded-full px-3 py-0 textsdm font-semibold text-grey-darker">
+                     Reedem Now
+                     </button>
+                     </form>
+                    <%}%>
+                    </p>
+                </div>
+              </div>
+            </div>
+            <%i++%>
+          <% }); %>
+      </div>`
+      
+      app = document.getElementsByClassName("app");
+
+for(var i = 0; i < app.length; i++) {
+    app[i].addEventListener('mouseover', anim, false);
+}
+for(var i = 0; i < app.length; i++) {
+      app[i].addEventListener('mouseout', desanim, false);
+}
+    } 
+        
+    function high(){
+     let card = document.getElementById('cards');
+      card.innerHTML = ''
+          card.innerHTML = `
+          <%i=0%>
+          <% prod.forEach(prod => { %> 
+            
+    <div  class="flex flex-wrap -m-2 ">
+       <div id="app[<%=i%>]" style="position: relative" class="w-full h-full p-4 app"  >
+          <div class="shadow h-full "  >
+            <div  style="position:relative; width:200px;">
+              <img src="<%= prod.img.url %>" alt="">  
+         <% if(  coins != '' ) {%>
+             <% if( prod.cost <= coins ) {%> 
+                <div style=" width: 32px ; height: 32px ; text-align: center ;background-image:radial-gradient(50% 130%, #0ad4fa 51%, #25bbf1 100%);; border-radius:100% ; position:absolute; top:0%; right:0%;">
+                     <img src="public/buy-blue.svg" alt=""></div>
+                     
+       <%}else{%>
+             <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
+              background:#616161;
+            border-radius:100px;
+              width:108px;
+            height:32px; position:absolute; top:0%; right:0%;">
+         <p style="font-size:11px; color:white; " class="pt-1">You need <%=prod.cost - coins%>  <img style="width:26px;
+               height:26px; text-align:right" src="public/coin.svg" alt=""></p>       
+               </div>
+                <%}%>
+               <%}else{%>               
+          <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
+            background:#616161;
+            border-radius:100px;
+            width:108px;
+             height:32px; position:absolute; top:0%; right:0%;">
+            <p style="font-size:11px; color:white; " class="pt-1">You need <%=prod.cost%>  <img style="width:26px;
+              height:26px; text-align:right" src="public/coin.svg" alt=""></p>    
+    </div>
+      <%}%>
+      </div>
+    <p class="text-grey text-base pl-4"><%=prod.category%></p>
+            <p class="text-grey-darker text-xl mb-2" style="text-align: center" ><%=prod.name%> </br> 
+                      <%if(user && coins>=prod.cost){%>
+                    <p style="text-align:center"><strong><%=prod.cost%></strong><img style="width:26px;
+                      height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                  <form style="text-align:center" action="/" method="POST">
+                     <input style="display:none" type="name" name="username"value="<%=user%>">
+                      <input style="display:none" type="number" name="coins" value="<%=coins - prod.cost%>">
+                       <button type="submit" 
+                      class="btn hover:bg-grey  static inline-block bg-grey-lighter rounded-full px-3 py-0 text-md font-semibold text-grey-darker">
+                      Reedem Now</button>
+                      </form>
+                    <%}%>
+                    </p>
+                </div>
+              </div>
+            </div>
+            <%i++%>
+          <% }); %>
+      </div>
+      `
+    app = document.getElementsByClassName("app");
+
+for(var i = 0; i < app.length; i++) {
+    app[i].addEventListener('mouseover', anim, false);
+}
+for(var i = 0; i < app.length; i++) {
+      app[i].addEventListener('mouseout', desanim, false);
+}
+
+    }
+   
+
+    </script>
