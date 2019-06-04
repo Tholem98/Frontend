@@ -36,5 +36,6 @@ app.use(require('./routes/router'))
 app.use(express.static(path.join(__dirname,'public')))
 
 // SERVER
+app.listen(app.get('port'),()=>console.log('server on Port:',app.get('port')));
 
 module.exports = app

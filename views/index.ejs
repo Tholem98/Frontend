@@ -18,7 +18,7 @@
 
 <div class="container bg-white">
         <nav class="navbar navbar-expand-lg navbar-light bg-white mt-4">
-          <a class="navbar-brand" href="#"><img src="public/aerolab-logo.svg" alt=""></a>
+          <a class="navbar-brand" href="#"><img src="../aerolab-logo.svg" alt=""></a>
                       
                 <%if(user){%>
                   <span class="navbar-text my-2 ">
@@ -27,7 +27,7 @@
                   </span>  
 
                   <span class=" bg-grey-lighter rounded-full px-3 py-1 text-sm font-semibold text-grey-darker">
-                    <%=coins%><img src="public/coin.svg" alt="">
+                    <%=coins%><img src="../coin.svg" alt="">
                   </span>
                   <form class="inline-form" action="/" method="POST"> <input style="display: none" type="name" name="name"> <button class="btn" type="submit" ><span  style="color:red" class="fas fa-sign-out-alt"></span></button></form>
                   <%}else{%>
@@ -43,7 +43,7 @@
     <div class="row ">
       <div style="position:relative">
         
-      <img src="public/header-x2.png" alt="">
+      <img src="../header-x2.png" alt="">
       <div class="" style=" width: 25%; height: 40%; position:absolute; bottom:-8%; left:10%;">
         <h1 class=" text-white electronics" >Electronics</h1> </div>
     </div>
@@ -67,7 +67,7 @@
                 <% if(  coins != '' ) {%>
                <% if( prod.cost <= coins ) {%> 
                 <div id="marca" style=" text-align: center ;background-image:radial-gradient(50% 130%, #0ad4fa 51%, #25bbf1 100%);; border-radius:100% ; position:absolute; top:0%; right:0%;">
-                    <img src="public/buy-blue.svg" alt=""></div>
+                   <img src="../buy-blue.svg" alt=""></div>
               
             <%}else{%>
               <div style=" width: 62px ; height: 32px ; text-align: center ;opacity:0.8;
@@ -76,7 +76,7 @@
               width:108px;
               height:32px; position:absolute; top:0%; right:0%;">
               <p style="font-size:11px; color:white; " class="pt-1">You need <%=prod.cost - coins%>  <img style="width:26px;
-                height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                height:26px; text-align:right" src="../coin.svg" alt=""></p>
               
               </div>
               <%}%>
@@ -88,7 +88,7 @@
               width:108px;
               height:32px; position:absolute; top:0%; right:0%;">
               <p style="font-size:11px; color:white; " class="pt-1">You need <%=prod.cost%>  <img style="width:26px;
-                height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                height:26px; text-align:right" src="../coin.svg" alt=""></p>
               
               </div>
               <%}%>
@@ -97,7 +97,7 @@
                   <p class="text-grey-darker text-xl mb-2" style="text-align: center" ><%=prod.name%> </br>
                   <%if(user && coins>=prod.cost){%>
                     <p style="text-align:center"><strong><%=prod.cost%></strong><img style="width:26px;
-                      height:26px; text-align:right" src="public/coin.svg" alt=""></p>
+                      height:26px; text-align:right" src="../coin.svg" alt=""></p>
                   <form style="text-align:center" action="/" method="POST"> <input style="display:none" type="name" name="username"value="<%=user%>" >
                     <input style="display:none" type="number" name="coins" value="<%=coins - prod.cost%>" >
                       <button type="submit" 
